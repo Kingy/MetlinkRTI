@@ -1,4 +1,4 @@
 MetlinkRTI
 ==========
 
-Scrapes real time information for train/bus.
+Scrapes real time information for train/bus stops.
