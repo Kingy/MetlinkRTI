@@ -60,11 +60,17 @@ if($ch){
                 echo "<h1>Current Announcements</h1>";
                 echo $annoucement."<br />";
                 }
-                
-                echo "<h1>Upcoming Trains</h1>";
+	
+		echo "<h1>RTI Trains</h1>";
                 echo "<pre>";
-                print_r($results);
+                print_r($gpsResults);
                 echo "</pre>";
+                
+                echo "<h1>Actual Trains</h1>";
+                echo "<pre>";
+                print_r($actResults);
+                echo "</pre>";
+                
         }			
 }			
 
