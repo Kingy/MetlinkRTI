@@ -40,14 +40,20 @@ if($ch){
                         $trainXpath = new DOMXPath( $newDom ); 
                                 
                         $train = trim($trainXpath->query("td[2]/a[@class='rt-service-destination ']/text()")->item(0)->nodeValue);
-                        $time = trim($trainXpath->query("td[@class='time']/span[@class='actual']/text()")->item(0)->nodeValue);
-                               
+                        $acttime = trim($trainXpath->query("td[@class='time']/span[@class='actual']/text()")->item(0)->nodeValue);
+                        $gpstime = trim($trainXpath->query("td[@class='time']/span[@class='till']/text()")->item(0)->nodeValue);       
                                 
-                        $results[] = array( 
-                		'train' => $train,	
-                		'time' => $time,         
-                        ); 
-
+			if ($gpstime != "") {
+	                        $gpsResults[] = array( 
+	                		'train' => $train,	
+	                		'time' => $gpstime,         
+	                        );
+	                } else if ($acttime != "") {	                                
+	                        $actResults[] = array( 
+	                		'train' => $train,	
+	                		'time' => $acttime,         
+	                        ); 
+	                }
                 }
                 $annoucement = trim($ann->item(0)->nodeValue);
                 if ($annoucement != "") {
